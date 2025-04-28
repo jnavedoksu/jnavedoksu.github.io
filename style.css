@@ -1,106 +1,134 @@
-body, html {
+html, body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
 }
-/* "This is Home Page" */
-h1{
+
+/* Page Title */
+h1 {
   text-align: center;
   margin-top: 20px;
+  color: #003366;
 }
-/* Set-Up for navbar*/
-.navbar ul{
+
+/* Navbar Styling */
+.navbar ul {
   list-style-type: none;
   background-color: #0056b3;
-  padding: 0px;
-  margin: 0px;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
-.navbar a{
+
+.navbar li {
+  flex: 1;
+}
+
+.navbar a {
   color: white;
   text-decoration: none;
-  padding: 20px;
+  padding: 16px;
   display: block;
   text-align: center;
-}
-/*darken the link color*/
-.navbar a:hover{
-  background-color: lightgray;
-}
-/*make navbar horizontal*/
-.navbar li{
-  float: left;
-}
-
-/* Home Page Middle section */
-.container {
-  display: flex;                /* Align items in a row (horizontal) */
-  justify-content: space-between;/* Add space between the frames */
-  margin: 20px;                  /* Add margin around the container */
-}
-
-.frame {
-  width: 30%;                    /* Set width for each frame */
-  text-align: center;            /* Center the content inside the frame */
-  border: 1px solid #ccc;       /* Add a border around each frame */
-  padding: 20px;
-  box-sizing: border-box;        /* Ensure padding does not affect the frame width */
-}
-
-.link {
-  display: block;                /* Make the link a block-level element */
-  font-size: 18px;
-  color: #007BFF;                /* Blue color for the link */
-  text-decoration: none;         /* Remove underline from the link */
-  margin-bottom: 10px;           /* Add space between the link and the image */
   font-weight: bold;
 }
 
-.link:hover {
-  color: #0056b3;                /* Darken the link color on hover */
+.navbar a:hover {
+  background-color: #003f7f;
 }
 
-.image {
-  width: 80%;                    /* Set the image width to 80% of the frame */
-  height: auto;                  /* Maintain the image aspect ratio */
-  margin-top: 10px;
+/* Home Page Container with Frames */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.frame {
+  width: 30%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
 }
 
 .frame:hover {
-  background-color: #f9f9f9;     /* Change background color on hover */
-  cursor: pointer;               /* Show a pointer cursor on hover */
+  background-color: #f1f1f1;
+  cursor: pointer;
 }
 
-/*Page 1&2 Grid Layout Set-Up*/
+.link {
+  display: block;
+  font-size: 18px;
+  color: #007BFF;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.image {
+  width: 80%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* Grid Layout Setup */
 .grid-container {
-display: grid;
-grid-gap: 10px;
-grid-
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#divheader
-{
-grid-column: 1 / span 3;
-grid-row: 1;
-}
-#divleft
-{
-grid-column: 1;
-grid-row: 2;
-}
-#divright
-{
-grid-column: 2 / 4;
-grid-row: 2;
-}
-#divfooter
-{
-grid-column: 1 / 4;
-grid-row: 3;
+/* Grid Areas */
+#divheader {
+  grid-column: 1 / span 3;
+  background-color: #e0e7ff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+#divleft {
+  grid-column: 1;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#divright {
+  grid-column: 2 / 4;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#divfooter {
+  grid-column: 1 / span 3;
+  background-color: #0056b3;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Style all grid children consistently */
 .grid-container > div {
-text-align: left;
-padding: 10px 0;
-border: thin solid gray
+  border: 1px solid #ccc;
 }
