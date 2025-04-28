@@ -3,111 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <title>Web Analytics Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .correct-answers {
+      margin-top: 30px;
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Web Analytics Quiz</h1>
+  <header>
+    <h1>Web Analytics Quiz</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Topic1.html">Topic 1</a></li>
+        <li><a href="Topic2.html">Topic 2</a></li>
+        <li><a href="Topic3.html">Topic 3</a></li>
+        <li><a href="Quiz.html">Quiz</a></li>
+        <li><a href="Refrences.html">References</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Topic1.html">Topic 1</a></li>
-      <li><a href="Topic2.html">Topic 2</a></li>
-      <li><a href="Quiz.html">Quiz</a></li>
-      <li><a href="Refrences.html">References</a></li>
-    </ul>
-  </nav>
+  <main style="padding: 20px;">
+    <form id="quizForm">
+      <p><strong>1. What is Web Analytics?</strong></p>
+      <label><input type="radio" name="q1" value="wrong"> A tool to build websites</label><br>
+      <label><input type="radio" name="q1" value="correct"> A way to analyze website data</label><br>
+      <label><input type="radio" name="q1" value="wrong"> A type of animation</label><br><br>
 
-  <form id="quizForm">
-    <p>1. What is Web Analytics?</p>
-    <label><input type="radio" name="q1" value="a"> A tool to build websites</label><br>
-    <label><input type="radio" name="q1" value="b"> A way to analyze website data</label><br>
-    <label><input type="radio" name="q1" value="c"> A type of animation</label>
+      <p><strong>2. Why is Web Analytics important?</strong></p>
+      <label><input type="radio" name="q2" value="correct"> To track visitor behavior</label><br>
+      <label><input type="radio" name="q2" value="wrong"> To make fonts bigger</label><br>
+      <label><input type="radio" name="q2" value="wrong"> To post blogs faster</label><br><br>
 
-    <p>2. Why is Web Analytics important?</p>
-    <label><input type="radio" name="q2" value="a"> To track visitor behavior</label><br>
-    <label><input type="radio" name="q2" value="b"> To make fonts bigger</label><br>
-    <label><input type="radio" name="q2" value="c"> To post blogs faster</label>
+      <p><strong>3. Which tool is used for Web Analytics?</strong></p>
+      <label><input type="radio" name="q3" value="wrong"> Paint</label><br>
+      <label><input type="radio" name="q3" value="correct"> Google Analytics</label><br>
+      <label><input type="radio" name="q3" value="wrong"> Canva</label><br><br>
 
-    <p>3. Which tool is used for Web Analytics?</p>
-    <label><input type="radio" name="q3" value="a"> Paint</label><br>
-    <label><input type="radio" name="q3" value="b"> Google Analytics</label><br>
-    <label><input type="radio" name="q3" value="c"> Canva</label>
+      <p><strong>4. Fill in the blank: The most common tool is ______ Analytics.</strong></p>
+      <input type="text" name="q4" placeholder="Your answer here"><br><br>
 
-    <p>4. Fill in the blank: The most common tool is ______ Analytics.</p>
-    <input type="text" name="q4">
+      <p><strong>5. Select all that are Web Analytics features:</strong></p>
+      <label><input type="checkbox" name="q5" value="track"> Track page views</label><br>
+      <label><input type="checkbox" name="q5" value="color"> Color photos</label><br>
+      <label><input type="checkbox" name="q5" value="bounce"> Bounce rate</label><br>
+      <label><input type="checkbox" name="q5" value="traffic"> Analyze traffic</label><br><br>
 
-    <p>5. Select all that are Web Analytics features:</p>
-    <label><input type="checkbox" name="q5" value="a"> Track page views</label><br>
-    <label><input type="checkbox" name="q5" value="b"> Color photos</label><br>
-    <label><input type="checkbox" name="q5" value="c"> Bounce rate</label><br>
-    <label><input type="checkbox" name="q5" value="d"> Analyze traffic</label><br><br>
+      <button type="button" onclick="checkAnswers()">Submit</button>
+      <button type="reset" onclick="resetResults()">Restart</button>
+    </form>
 
-    <button type="button" onclick="checkAnswers()">Submit</button>
-    <button type="reset" onclick="resetQuiz()">Restart</button>
-  </form>
+    <div id="results" class="correct-answers">
+      <h3>Correct Answers</h3>
+      <ul>
+        <li><strong>1:</strong> A way to analyze website data</li>
+        <li><strong>2:</strong> To track visitor behavior</li>
+        <li><strong>3:</strong> Google Analytics</li>
+        <li><strong>4:</strong> Google</li>
+        <li><strong>5:</strong> Track page views, Bounce rate, Analyze traffic</li>
+      </ul>
+    </div>
+  </main>
 
-  <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+  <footer id="divfooter">
+    <p>Created for research purposes – Web Analytics Project</p>
+  </footer>
 
   <script>
     function checkAnswers() {
+      const form = document.forms['quizForm'];
       let score = 0;
-      let result = "";
 
-      // Q1
-      const q1 = document.querySelector('input[name="q1"]:checked');
-      if (q1 && q1.value === "b") {
-        score++;
-        result += "<p>1. Correct</p>";
-      } else {
-        result += "<p>1. Incorrect (Correct: b)</p>";
-      }
+      if (form.q1.value === "correct") score++;
+      if (form.q2.value === "correct") score++;
+      if (form.q3.value === "correct") score++;
 
-      // Q2
-      const q2 = document.querySelector('input[name="q2"]:checked');
-      if (q2 && q2.value === "a") {
-        score++;
-        result += "<p>2. Correct</p>";
-      } else {
-        result += "<p>2. Incorrect (Correct: a)</p>";
-      }
+      const q4Answer = form.q4.value.trim().toLowerCase();
+      if (q4Answer === "google") score++;
 
-      // Q3
-      const q3 = document.querySelector('input[name="q3"]:checked');
-      if (q3 && q3.value === "b") {
-        score++;
-        result += "<p>3. Correct</p>";
-      } else {
-        result += "<p>3. Incorrect (Correct: b)</p>";
-      }
+      const checkboxes = document.querySelectorAll('input[name="q5"]:checked');
+      const correctValues = ["track", "bounce", "traffic"];
+      let selectedValues = Array.from(checkboxes).map(cb => cb.value);
+      let allCorrect = correctValues.every(val => selectedValues.includes(val)) &&
+                       selectedValues.every(val => correctValues.includes(val));
+      if (allCorrect) score++;
 
-      // Q4
-      const q4 = document.querySelector('input[name="q4"]').value.trim().toLowerCase();
-      if (q4 === "google") {
-        score++;
-        result += "<p>4. Correct</p>";
-      } else {
-        result += "<p>4. Incorrect (Correct: Google)</p>";
-      }
-
-      // Q5
-      const correctQ5 = ["a", "c", "d"];
-      const selectedQ5 = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(i => i.value);
-      const isCorrectQ5 = correctQ5.every(val => selectedQ5.includes(val)) && selectedQ5.length === correctQ5.length;
-      if (isCorrectQ5) {
-        score++;
-        result += "<p>5. Correct</p>";
-      } else {
-        result += "<p>5. Incorrect (Correct: a, c, d)</p>";
-      }
-
-      result = `<p>Score: ${score}/5</p><p>${score >= 3 ? "Pass" : "Fail"}</p>` + result;
-      document.getElementById("result").innerHTML = result;
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.style.display = "block";
+      resultsDiv.insertAdjacentHTML('afterbegin', `<p>You got <strong>${score}/5</strong> correct.</p>`);
     }
 
-    function resetQuiz() {
-      document.getElementById("result").innerHTML = "";
+    function resetResults() {
+      document.getElementById("results").style.display = "none";
+      document.getElementById("results").innerHTML = `
+        <h3>Correct Answers</h3>
+        <ul>
+          <li><strong>1:</strong> A way to analyze website data</li>
+          <li><strong>2:</strong> To track visitor behavior</li>
+          <li><strong>3:</strong> Google Analytics</li>
+          <li><strong>4:</strong> Google</li>
+          <li><strong>5:</strong> Track page views, Bounce rate, Analyze traffic</li>
+        </ul>`;
     }
   </script>
 
